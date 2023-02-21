@@ -1,0 +1,2 @@
+api_key = "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"
+instruction_prompt = 'generate a large-scale complex multi-level mind map (in JSON format, "title"+"children") with specific information in a professional perspective(note: try to put new knowledge to expand/explain the terms, e.g definitions, examples) for the following text:\n'
