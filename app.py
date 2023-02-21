@@ -12,11 +12,10 @@ topic = st.text_input('Topic or Text', '')
 gen_button = st.button('Generate')
 if gen_button:
     with st.spinner("Please wait..."):
-        try:
-            d = eval(openai.Completion.create(model="text-davinci-003", prompt=instruction_prompt + topic + "\n", max_tokens=3000, temperature=0.3)["choices"][0]["text"])
-        except:
-            st.error("There's an error accessing the GPT model, please try again.")
-            exit(0)
+        d = eval(openai.Completion.create(model="text-davinci-003", prompt=instruction_prompt + topic + "\n", max_tokens=3000, temperature=0.3)["choices"][0]["text"])
+        #except:
+        #    st.error("There's an error accessing the GPT model, please try again.")
+        #    exit(0)
         topic = d["title"]
         st.markdown(generate_markdown(d))
         workbook = xmind.load(topic + ".xmind")
