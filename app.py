@@ -8,11 +8,12 @@ from vars import *
 openai.api_key = api_key
 st.set_page_config(page_title='AI MindMapper', page_icon='🤖')
 st.title('AI MindMapper')
-topic = st.text_input('Topic or Text', '')
+topic = st.text_area('Topic or Text', '')
 gen_button = st.button('Generate')
 if gen_button:
     with st.spinner("Please wait..."):
         d = eval(openai.Completion.create(model="text-davinci-003", prompt=instruction_prompt + topic + "\n", max_tokens=3000, temperature=0.3)["choices"][0]["text"])
+        print(d)
         #except:
         #    st.error("There's an error accessing the GPT model, please try again.")
         #    exit(0)
